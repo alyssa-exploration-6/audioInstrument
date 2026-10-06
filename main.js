@@ -109,14 +109,16 @@ document.addEventListener("keydown", (event) => {
 
 
 const starMap = {
-a: document.getElementById("star-a"),
-b: document.getElementById("star-b"),
-c: document.getElementById("star-c"),
+q: document.getElementById("star-q"),
+w: document.getElementById("star-w"),
 e: document.getElementById("star-e"),
-m: document.getElementById("star-m"),
+r: document.getElementById("star-r"),
+t: document.getElementById("star-t"),
+y: document.getElementById("star-y"),
+u: document.getElementById("star-u"),
+i: document.getElementById("star-i"),
 o: document.getElementById("star-o"),
-p: document.getElementById("star-p"),
-s: document.getElementById("star-s")
+p: document.getElementById("star-p")
 };
 
 
