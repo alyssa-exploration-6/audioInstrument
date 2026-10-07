@@ -106,6 +106,8 @@ function createJellyfish(keyData) {
 
     }, 7600);
 
+};
+
 function createShootingStar() {
     const star = document.createElement("img");
 
@@ -126,7 +128,6 @@ function createShootingStar() {
         star.remove();
     }, 1500);
 }
-};
 
 
 document.addEventListener("keydown", function(event) {
