@@ -1,8 +1,4 @@
 
-// find my test button              const testButton = document.getElementById("test-button");
-// find my key test button          const key = document.getElementById("key-test");
-
-
 
 // find our intro modal
 const introModal = document.getElementById("intro-modal");
@@ -23,36 +19,105 @@ introModal.close();
 
 
 
+// -------- INSTRUMENT -------------
 
-// This is the instrument------------------------ //
+const ocean = document.getElementById("ocean");
 
-// const snapSound = new Audio("sounds/Asnap.mp3");
+
+
+const jellyfishMap = {
+    q: {
+    image: "img/j1.png",
+    sound: "sounds/1.wav"
+    },
+
+    w: {
+    image: "img/j2.png",
+    sound: "sounds/2.wav"
+    },
+
+    e: {
+    image: "img/j3.png",
+    sound: "sounds/3.wav"
+    },
+
+    r: {
+    image: "img/j4.png",
+    sound: "sounds/4.wav"
+    },
+
+    t: {
+    image: "img/j5.png",
+    sound: "sounds/5.wav"
+    },
+
+    y: {
+    image: "img/j6.png",
+    sound: "sounds/6.wav"
+    },
+
+    u: {
+    image: "img/j7.png",
+    sound: "sounds/7.wav"
+    },
+
+    i: {
+    image: "img/j8.png",
+    sound: "sounds/8.wav"
+    },
+
+    o: {
+    image: "img/j9.png",
+    sound: "sounds/9.wav"
+    },
+
+    p: {
+    image: "img/j10.png",
+    sound: "sounds/10.wav"
+    }
+
+};
+
+function createJellyfish(keyData) {
+    const jelly = document.createElement("img");
+    jelly.src = keyData.image;
+    jelly.classList.add("jellyfish");
+
+// create random position
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 150);
+
+    jelly.style.left = x + "px";
+    jelly.style.top = y + "px";
+
+    ocean.appendChild(jelly);
+
+// play sound every 2 seconds
+    const interval = setInterval(() => {
+        const sound = new Audio(keyData.sound);
+        sound.play();
+    }, 4000);
+
+// remove jellyfish after 8 seconds
+    setTimeout(() => {
+        clearInterval(interval);
+
+        jelly.remove();
+
+    }, 7600);
+};
 
 
 document.addEventListener("keydown", function(event) {
 
-    // Check if the physical keyboard key pressed is A
-    if (event.key.toLowerCase() === "a") {
-            
-        const snapSound = new Audio("sounds/Asnap.mp3");
-        snapSound.play();
+    const key = event.key.toLowerCase();
+    if (!jellyfishMap[key]) {
+        return;
     }
 
+// playing the audio files & creating jellyfish img
+    const sound = new Audio(jellyfishMap[key].sound);
+    sound.play();
+    createJellyfish(jellyfishMap[key]);
 
-    if (event.key.toLowerCase() === "b") {
-
-        const chimeSound = new Audio("sounds/Bchime.mp3");
-        chimeSound.play();
-    }
-
-    if (event.key.toLowerCase() === "c") {
-
-        const bubbleSound = new Audio("sounds/Cbubble.mp3");
-        bubbleSound.play();
-    }
 });
-
-
-// two different areas for imporvement, 1. the aesthetic & visuals 2. randomness.
-// create 3 branches for each improvement, meaning total 6 branches.
-
