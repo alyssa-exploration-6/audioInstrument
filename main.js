@@ -111,7 +111,7 @@ function createJellyfish(keyData) {
 function createShootingStar() {
     const star = document.createElement("img");
 
-    star.src = "img/shooting-star.png";
+    star.src = "img/star.png";
     star.classList.add("shooting-star");
 
     // Random starting position
