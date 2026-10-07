@@ -88,3 +88,23 @@ animation: jellyfishFade 8s ease-in-out forwards;
         opacity: 0;
     }
 }
+
+.shooting-star {
+    position: absolute;
+    width: 80px;
+    pointer-events: none;
+
+    animation: shoot 1.5s linear forwards;
+}
+
+@keyframes shoot {
+    from {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(400px, 300px);
+        opacity: 0;
+    }
+}

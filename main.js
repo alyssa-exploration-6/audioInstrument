@@ -105,6 +105,27 @@ function createJellyfish(keyData) {
         jelly.remove();
 
     }, 7600);
+
+function createShootingStar() {
+    const star = document.createElement("img");
+
+    star.src = "img/shooting-star.png";
+    star.classList.add("shooting-star");
+
+    // Random starting position
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * (window.innerHeight / 2);
+
+    star.style.left = x + "px";
+    star.style.top = y + "px";
+
+    ocean.appendChild(star);
+
+    // Remove star after animation
+    setTimeout(() => {
+        star.remove();
+    }, 1500);
+}
 };
 
 
@@ -120,4 +141,8 @@ document.addEventListener("keydown", function(event) {
     sound.play();
     createJellyfish(jellyfishMap[key]);
 
+// Random chance of shooting star
+if (Math.random() < 0.3) {
+    createShootingStar();
+}
 });
